@@ -22,7 +22,97 @@ For this task, I needed at least 1 year of data, so that I can analyze it with d
 - I faced a roadblock here, Sandbox account didn't allow me to delete rows with NULL values, so I had to figure out the way to upload all data to PostgreSQL. 
 - I successfully created a table with the correct data types in Pg Admin and used the copy command to copy all 12 CSV files to the table.
 - Here again, I created a copy of that table and performed cleaning tasks on that copied table. The original table is still in its original form.
+```sql
+--Combining Data:
+CREATE TABLE bike_share(
+	ride_id VARCHAR(25),
+	rideable_type VARCHAR(25),
+	started_at TIMESTAMP,
+	ended_at TIMESTAMP,
+	start_station_name VARCHAR(45),
+	start_station_id VARCHAR(25),
+	end_station_name VARCHAR(25),
+	end_station_id VARCHAR(25),
+	start_lat DECIMAL(17,15),
+	start_lng DECIMAL(17,15),
+	end_lat DECIMAL(17,15),
+	end_lng DECIMAL(17,15),
+	member_casual VARCHAR(45)
+);
 
+--Jan2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202101-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Feb2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202102-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Mar2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202103-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Apr2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202104-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--May2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202105-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Jun2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202106-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Jul2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202107-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Aug2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202108-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Sep2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202109-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Oct2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202110-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Nov2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202111-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Dec2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id,
+end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202112-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+```
 ## Data Cleaning
 - After creating a backup table, I started cleaning data. 
 - First, I deleted all rows containing NULL values in all columns. It was important to delete these Nulls for the sake of correct analysis and to avoid bias.
@@ -34,6 +124,22 @@ For this task, I needed at least 1 year of data, so that I can analyze it with d
 As duplicate rows could impact the result of analysis, so I verified data for the duplicated rows in the table. Fortunately, there were no duplicate records.
 ## Getting to know the Data
 Before analysis, it was important to know the actual data. So I wrote some queries to get the knowledge of data. 
+```sql
+--Getting to know the data
+SELECT DISTINCT(rideable_type)
+FROM bike_share;
+
+SELECT DISTINCT(start_station_name)
+FROM bike_share; 
+
+
+SELECT DISTINCT(end_station_name)
+FROM bike_share; 
+
+
+SELECT DISTINCT(member_casual)
+FROM bike_share;
+```
 1. Total Unique Rows: 4,588,094
 2. Rideable types of bikes: "classic_bike", "docked_bike", "electric_bike"
 3. Start Station Name Count: 839
@@ -56,6 +162,156 @@ To better answer the business question, I broke down the question in smaller ste
 10. What time of the day, member and casual riders start their ride at?
 11. Which bike type is most popular among different riders?
 12. Bike use by different category riders during working week & Weekend?
+```sql
+--1. Total number of rides per user category
+SELECT member_casual, COUNT(*)
+FROM bike_share
+GROUP BY 1;
+
+--2. Number of rides per month per user category
+SELECT member_casual,
+CASE EXTRACT(MONTH from started_at)
+WHEN 1 THEN 'Jan'
+WHEN 2 THEN 'Feb'
+WHEN 3 THEN 'Mar'
+WHEN 4 THEN 'Apr'
+WHEN 5 THEN 'May'
+WHEN 6 THEN 'Jun'
+WHEN 7 THEN 'Jul'
+WHEN 8 THEN 'Aug'
+WHEN 9 THEN 'Sep'
+WHEN 10 THEN 'Oct'
+WHEN 11 THEN 'Nov'
+WHEN 12 THEN 'Dec'
+END AS ride_month, COUNT(*) AS no_of_rides
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 3;
+
+--3. Which day of the week is most popular among different user category riders?
+SELECT member_casual, 
+CASE EXTRACT(DOW from started_at)
+WHEN 0 THEN 'Sun'
+WHEN 1 THEN 'Mon'
+WHEN 2 THEN 'Tue'
+WHEN 3 THEN 'Wed'
+WHEN 4 THEN 'Thu'
+WHEN 5 THEN 'Fri'
+WHEN 6 THEN 'Sat'
+END AS ride_day, 
+COUNT(*) AS no_of_rides 
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 2;
+
+--4. Which month of the year is the most busy one for different users?
+SELECT member_casual,
+CASE EXTRACT(MONTH from started_at)
+WHEN 1 THEN 'Jan'
+WHEN 2 THEN 'Feb'
+WHEN 3 THEN 'Mar'
+WHEN 4 THEN 'Apr'
+WHEN 5 THEN 'May'
+WHEN 6 THEN 'Jun'
+WHEN 7 THEN 'Jul'
+WHEN 8 THEN 'Aug'
+WHEN 9 THEN 'Sep'
+WHEN 10 THEN 'Oct'
+WHEN 11 THEN 'Nov'
+WHEN 12 THEN 'Dec'
+END AS ride_month,
+COUNT(*) AS no_of_rides 
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 3 DESC;
+
+--5. What is the average ride time for different category users by month?
+SELECT member_casual,
+CASE EXTRACT(MONTH from started_at)
+WHEN 1 THEN 'Jan'
+WHEN 2 THEN 'Feb'
+WHEN 3 THEN 'Mar'
+WHEN 4 THEN 'Apr'
+WHEN 5 THEN 'May'
+WHEN 6 THEN 'Jun'
+WHEN 7 THEN 'Jul'
+WHEN 8 THEN 'Aug'
+WHEN 9 THEN 'Sep'
+WHEN 10 THEN 'Oct'
+WHEN 11 THEN 'Nov'
+WHEN 12 THEN 'Dec'
+END AS ride_month,
+ROUND(EXTRACT(HOUR from AVG(ride_duration))*60
++EXTRACT(MINUTE from AVG(ride_duration))
++EXTRACT(SECOND from AVG(ride_duration))/60,2) AS m_avg_duration 
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 3 DESC;
+
+--6 What is the average ride time for different category users, by year and by month?
+SELECT member_casual,
+ROUND(EXTRACT(HOUR from AVG(ride_duration))*60
++EXTRACT(MINUTE from AVG(ride_duration))
++EXTRACT(SECOND from AVG(ride_duration))/60,2) AS y_avg_duration 
+FROM bike_share
+GROUP BY 1;
+
+--7. Top 1000 longest rides belong to which type of user?
+SELECT member_casual, COUNT(*)
+FROM (	SELECT member_casual, ride_duration
+		FROM bike_share
+		ORDER BY 2 DESC
+		LIMIT 1000
+) sub
+GROUP BY 1;
+
+
+--8. Top 5 stations as a starting point for member category?
+SELECT start_station_name, member_casual, COUNT(*)
+FROM bike_share
+WHERE member_casual = 'member'
+GROUP BY 1,2
+ORDER BY 3 DESC
+LIMIT 5;
+
+
+--9. Top 5 stations as a starting point for casual category?
+SELECT start_station_name, member_casual, COUNT(*)
+FROM bike_share
+WHERE member_casual = 'casual'
+GROUP BY 1,2
+ORDER BY 3 DESC
+LIMIT 5;
+
+
+--10. What time of the day member and casual users start their ride at?
+SELECT member_casual, DATE_PART('HOUR', started_at) AS hour_of_the_day, COUNT(*)
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 3 DESC;
+
+--11. Which bike type is most popular among different users?
+SELECT member_casual, rideable_type, COUNT(*)
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 3 DESC;
+
+--12. Bike use by different category users during working week & Weekend?
+SELECT member_casual,
+CASE EXTRACT(DOW from started_at)
+WHEN 0 THEN 'Sun'
+WHEN 1 THEN 'Mon'
+WHEN 2 THEN 'Tue'
+WHEN 3 THEN 'Wed'
+WHEN 4 THEN 'Thu'
+WHEN 5 THEN 'Fri'
+WHEN 6 THEN 'Sat'
+END AS day_of_week,
+COUNT(*)
+FROM bike_share
+GROUP BY 1,2
+ORDER BY 3;
+```
 ## Visualizations
 - Number of rides booked (%) per user category during 2021.
 ![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/4b1380fe-11fa-43ea-918c-b3a0f1cc71c4)

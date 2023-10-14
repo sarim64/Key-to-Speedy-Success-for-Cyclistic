@@ -14,21 +14,21 @@ Out of these 3 questions, second one is relevant to data analytics team. “To b
 
 For this task, I needed at least 1 year of data, so that I can analyze it with different angles. So, I downloaded data related to year 2021. Before moving forward, it was important to check the completeness and accuracy of the data. I used BigQuery as well as PostgreSQL as tools for preparing, cleaning and analyzing data. I used Tableau to visualize my analysis.
 ## Data Combining
-So, as a first step, I uploaded all 12 CSV files in BigQuery.
-Now this was the time to use my SQL knowledge to prepare, clean and analyze data using SQL queries. 
-I checked the data types for all the columns in all 12 tables in BigQuery just to make sure that data types are aligned, because I had to combine these tables into one.
-After making sure data types are identical for all the columns in all tables, I created one separate table by combining all the tables with a final row count of 6,733,219. 
-I created a copy of the combined table and performed data cleaning steps.
-I faced a roadblock here, Sandbox account didn't allow me to delete rows with NULL values, so I had to figure out the way to upload all data to PostgreSQL. 
-I successfully created a table with the correct data types in Pg Admin and used the copy command to copy all 12 CSV files to the table.
-Here again, I created a copy of that table and performed cleaning tasks on that copied table. The original table is still in its original form.
+- So, as a first step, I uploaded all 12 CSV files in BigQuery.
+- Now this was the time to use my SQL knowledge to prepare, clean and analyze data using SQL queries. 
+- I checked the data types for all the columns in all 12 tables in BigQuery just to make sure that data types are aligned, because I had to combine these tables into one.
+- After making sure data types are identical for all the columns in all tables, I created one separate table by combining all the tables with a final row count of 6,733,219. 
+- I created a copy of the combined table and performed data cleaning steps.
+- I faced a roadblock here, Sandbox account didn't allow me to delete rows with NULL values, so I had to figure out the way to upload all data to PostgreSQL. 
+- I successfully created a table with the correct data types in Pg Admin and used the copy command to copy all 12 CSV files to the table.
+- Here again, I created a copy of that table and performed cleaning tasks on that copied table. The original table is still in its original form.
 ## Data Cleaning
-After creating a backup table, I started cleaning data. 
-First, I deleted all rows containing NULL values in all columns. It was important to delete these Nulls for the sake of correct analysis and to avoid bias.
-After deleting NULL values, I got 4,588,302 rows of clean data.
-After exploring data, another round of cleaning was conducted. I found some discrepancy where station_name and station_id was same. Total 10 rows with this inconsistent data were removed. 
-After further exploration, I found that there were some rows in the data where the difference between end_time and start_time was in negative. It was important to eradicate these rows. So I wrote some queries to further clean the data.
-Note: I further explored this data, and found there were thousands of rows of data where the difference between end time and start time was a couple of seconds and start station name and end station name were the same, I was convinced to delete these rows, but I kept them anyway.
+- After creating a backup table, I started cleaning data. 
+- First, I deleted all rows containing NULL values in all columns. It was important to delete these Nulls for the sake of correct analysis and to avoid bias.
+- After deleting NULL values, I got 4,588,302 rows of clean data.
+- After exploring data, another round of cleaning was conducted. I found some discrepancy where station_name and station_id was same. Total 10 rows with this inconsistent data were removed. 
+- After further exploration, I found that there were some rows in the data where the difference between end_time and start_time was in negative. It was important to eradicate these rows. So I wrote some queries to further clean the data.
+- Note: I further explored this data, and found there were thousands of rows of data where the difference between end time and start time was a couple of seconds and start station name and end station name were the same, I was convinced to delete these rows, but I kept them anyway.
 ## Verification
 As duplicate rows could impact the result of analysis, so I verified data for the duplicated rows in the table. Fortunately, there were no duplicate records.
 ## Getting to know the Data

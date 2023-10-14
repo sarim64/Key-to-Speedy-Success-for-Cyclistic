@@ -74,11 +74,10 @@ To better answer the business question, I broke down the question in smaller ste
 - What is the average ride time for different category riders by month?
 ![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/13378969-9d8d-4e2f-99cc-bfc3833eb8c3)
 
-- Top 5 stations as a starting point for “member” category riders?
-- 
+- Top 5 stations as a starting point for “member” category riders?                                           
 ![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/cda1833b-ebd1-4267-8351-6734e82b32af)
 
-- Top 5 stations as a starting point for “casual” category riders?
+- Top 5 stations as a starting point for “casual” category riders?                                            
 - 
 ![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/d2e6e59c-3799-442e-a675-8d17d99fad7d)
 

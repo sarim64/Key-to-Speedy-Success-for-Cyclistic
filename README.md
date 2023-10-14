@@ -1,12 +1,12 @@
 # Key-to-Speedy-Success-for-Cyclistic
-Key to Speedy Success for Cyclistic
-Statement of Business Task: 
-How annual members and casual riders differ?
-Data Source: 
+# Key to Speedy Success for Cyclistic
+# Statement of Business Task: 
+# How annual members and casual riders differ?
+# Data Source: 
 A publicly available data set, “divvy-tripdata”. I used one year, year 2021, of trip data in my analysis. One year data is sufficient to get actionable insights from the data.
-Documentation: 
+# Documentation: 
 This detailed report, an SQL file with actual queries and a Tableau “Data Story” is available will be ready by the end of this project.
-Detailed Analysis Process:
+# Detailed Analysis Process:
 After reading the requirements, I determined three questions.
 Design marketing strategies aimed at converting casual riders into annual members.
 To better understand how annual members and casual riders differ.

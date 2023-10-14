@@ -22,6 +22,83 @@ For this task, I needed at least 1 year of data, so that I can analyze it with d
 - I faced a roadblock here, Sandbox account didn't allow me to delete rows with NULL values, so I had to figure out the way to upload all data to PostgreSQL. 
 - I successfully created a table with the correct data types in Pg Admin and used the copy command to copy all 12 CSV files to the table.
 - Here again, I created a copy of that table and performed cleaning tasks on that copied table. The original table is still in its original form.
+--Combining Data:
+CREATE TABLE bike_share(
+	ride_id VARCHAR(25),
+	rideable_type VARCHAR(25),
+	started_at TIMESTAMP,
+	ended_at TIMESTAMP,
+	start_station_name VARCHAR(45),
+	start_station_id VARCHAR(25),
+	end_station_name VARCHAR(25),
+	end_station_id VARCHAR(25),
+	start_lat DECIMAL(17,15),
+	start_lng DECIMAL(17,15),
+	end_lat DECIMAL(17,15),
+	end_lng DECIMAL(17,15),
+	member_casual VARCHAR(45)
+);
+
+--Jan2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202101-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Feb2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202102-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Mar2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202103-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Apr2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202104-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--May2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202105-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Jun2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202106-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Jul2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202107-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Aug2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202108-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Sep2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202109-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Oct2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202110-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Nov2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202111-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
+--Dec2021
+COPY bike_share(ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual)
+FROM '<File Location>\202112-divvy-tripdata.csv'
+DELIMITER ','
+CSV HEADER;
 ## Data Cleaning
 - After creating a backup table, I started cleaning data. 
 - First, I deleted all rows containing NULL values in all columns. It was important to delete these Nulls for the sake of correct analysis and to avoid bias.

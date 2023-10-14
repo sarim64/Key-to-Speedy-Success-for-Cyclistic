@@ -57,28 +57,37 @@ To better answer the business question, I broke down the question in smaller ste
 12. Bike use by different category riders during working week & Weekend?
 ## Visualizations
 - Number of rides booked (%) per user category during 2021.
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/4b1380fe-11fa-43ea-918c-b3a0f1cc71c4)
 
 - Number of rides booked per month per user category during 2021.
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/c5a82ad1-253f-4702-96ce-a1d4bf56d4f0)
 
 - Which day of the week is most popular among different category riders?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/cdfbee10-29fa-45db-ac98-270ae2a7d2ae)
 
 - Which month of the year is the most busy by different category riders?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/eced0006-2ee9-4792-aafb-7842c5b88ff8)
 
 - What is the average ride time for different category riders, by year?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/289dd3d9-20ae-4a2f-a357-61852d10c09e)
 
 - What is the average ride time for different category riders by month?
-
-- Top 1,000 longest rides belong to which type of riders?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/13378969-9d8d-4e2f-99cc-bfc3833eb8c3)
 
 - Top 5 stations as a starting point for “member” category riders?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/cda1833b-ebd1-4267-8351-6734e82b32af)
 
 - Top 5 stations as a starting point for “casual” category riders?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/d2e6e59c-3799-442e-a675-8d17d99fad7d)
 
 - What time of the day, member and casual riders start their ride at?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/bcb2c0c2-3a2a-4375-8c59-47f63a153713)
 
 - Which bike type is most popular among different riders?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/9d5f92d4-b218-45ea-bbf5-73e1d56a6936)
 
 - Bike use by different category riders during working week & Weekend?
+![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/4784bea3-7a70-49ff-b5bc-d14e15657250)
 
 ## Conclusion
 - After a detailed analysis, keeping in mind the core business task, I have come to the conclusion that:

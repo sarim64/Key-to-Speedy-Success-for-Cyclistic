@@ -57,13 +57,29 @@ To better answer the business question, I broke down the question in smaller ste
 12. Bike use by different category riders during working week & Weekend?
 ## Visualizations
 - Number of rides booked (%) per user category during 2021.
-![image](https://github.com/sarim64/Key-to-Speedy-Success-for-Cyclistic/assets/147341497/ed00f173-5977-4e3c-acb8-baf43cbfbe4b)
 
 - Number of rides booked per month per user category during 2021.
 
 - Which day of the week is most popular among different category riders?
 
-- 
+- Which month of the year is the most busy by different category riders?
+
+- What is the average ride time for different category riders, by year?
+
+- What is the average ride time for different category riders by month?
+
+- Top 1,000 longest rides belong to which type of riders?
+
+- Top 5 stations as a starting point for “member” category riders?
+
+- Top 5 stations as a starting point for “casual” category riders?
+
+- What time of the day, member and casual riders start their ride at?
+
+- Which bike type is most popular among different riders?
+
+- Bike use by different category riders during working week & Weekend?
+
 ## Conclusion
 - After a detailed analysis, keeping in mind the core business task, I have come to the conclusion that:
 - We can safely say that the members book more rides as compared to casual riders.

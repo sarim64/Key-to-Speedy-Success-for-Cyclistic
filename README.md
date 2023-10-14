@@ -55,6 +55,8 @@ To better answer the business question, I broke down the question in smaller ste
 10. What time of the day, member and casual riders start their ride at?
 11. Which bike type is most popular among different riders?
 12. Bike use by different category riders during working week & Weekend?
+## Visualizations
+
 ## Conclusion
 - After a detailed analysis, keeping in mind the core business task, I have come to the conclusion that:
 - We can safely say that the members book more rides as compared to casual riders.

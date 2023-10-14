@@ -1,20 +1,19 @@
-# Key-to-Speedy-Success-for-Cyclistic
 # Key to Speedy Success for Cyclistic
-# Statement of Business Task: 
-# How annual members and casual riders differ?
-# Data Source: 
+## Statement of Business Task: 
+How annual members and casual riders differ?
+## Data Source: 
 A publicly available data set, “divvy-tripdata”. I used one year, year 2021, of trip data in my analysis. One year data is sufficient to get actionable insights from the data.
-# Documentation: 
+## Documentation: 
 This detailed report, an SQL file with actual queries and a Tableau “Data Story” is available will be ready by the end of this project.
 # Detailed Analysis Process:
 After reading the requirements, I determined three questions.
-Design marketing strategies aimed at converting casual riders into annual members.
-To better understand how annual members and casual riders differ.
-Why casual riders would buy a membership, and how digital media could affect their marketing tactics.
+1. Design marketing strategies aimed at converting casual riders into annual members.
+2. To better understand how annual members and casual riders differ.
+3. Why casual riders would buy a membership, and how digital media could affect their marketing tactics.
 Out of these 3 questions, second one is relevant to data analytics team. “To better understand how annual members and casual riders differ.”
 
 For this task, I needed at least 1 year of data, so that I can analyze it with different angles. So, I downloaded data related to year 2021. Before moving forward, it was important to check the completeness and accuracy of the data. I used BigQuery as well as PostgreSQL as tools for preparing, cleaning and analyzing data. I used Tableau to visualize my analysis.
-Data Combining
+## Data Combining
 So, as a first step, I uploaded all 12 CSV files in BigQuery.
 Now this was the time to use my SQL knowledge to prepare, clean and analyze data using SQL queries. 
 I checked the data types for all the columns in all 12 tables in BigQuery just to make sure that data types are aligned, because I had to combine these tables into one.
@@ -23,7 +22,7 @@ I created a copy of the combined table and performed data cleaning steps.
 I faced a roadblock here, Sandbox account didn't allow me to delete rows with NULL values, so I had to figure out the way to upload all data to PostgreSQL. 
 I successfully created a table with the correct data types in Pg Admin and used the copy command to copy all 12 CSV files to the table.
 Here again, I created a copy of that table and performed cleaning tasks on that copied table. The original table is still in its original form.
-Data Cleaning
+## Data Cleaning
 After creating a backup table, I started cleaning data. First, I deleted all rows containing NULL values in all columns. It was important to delete these Nulls for the sake of correct analysis and to avoid bias.
 After deleting NULL values, I got 4,588,302 rows of clean data.
 After exploring data, another round of cleaning was conducted. I found some discrepancy where station_name and station_id was same. Total 10 rows with this inconsistent data were removed. 

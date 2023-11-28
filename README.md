@@ -122,6 +122,8 @@ CSV HEADER;
 - Note: I further explored this data, and found there were thousands of rows of data where the difference between end time and start time was a couple of seconds and start station name and end station name were the same, I was convinced to delete these rows, but I kept them anyway.
 ## Verification
 As duplicate rows could impact the result of analysis, so I verified data for the duplicated rows in the table. Fortunately, there were no duplicate records.
+## Data Integrity
+- I made sure that there was no loss of data rows during its transfer from CSV to SQL. The sum of total rows in all 12 CSV files was the same when all these files were combined in SQL database. 
 ## Getting to know the Data
 Before analysis, it was important to know the actual data. So I wrote some queries to get the knowledge of data. 
 ```sql
